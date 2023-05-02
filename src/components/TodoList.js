@@ -30,9 +30,9 @@ const TodoList = () => {
 
   const getTodos = async () => {
     //firestore 쿼리
-    //const q = query(todoCollection);
+    const q = query(todoCollection);
     //const q = query(collection(db, "todos"),where("user","==",user.uid));
-    const q = query(todoCollection, orderBy("datetime", "desc"));
+    //const q = query(todoCollection, orderBy("datetime", "desc"));
     //firestore에서 할일 목록 조회
     const results = await getDocs(q);
     const newTodos = [];
