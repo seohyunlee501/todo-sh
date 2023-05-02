@@ -7,6 +7,16 @@
 import React from "react";
 import styles from "@/styles/TodoList.module.css";
 
+// Todo 객체를 생성하는 코드
+const Todo = (text) => {
+  return {
+    id: uuidv4(),
+    text,
+    completed: false,
+    date: new Date().toISOString().slice(0, 10), // 현재 날짜를 ISO 형식의 문자열로 변환하여 할 일의 날짜로 설정
+  };
+};
+
 // TodoItem 컴포넌트를 정의합니다.
 const TodoItem = ({ todo, onToggle, onDelete }) => {
   // 각 할 일 항목을 렌더링합니다.
@@ -24,6 +34,7 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
         {todo.text}
       </span>
 
+      <input type="date" defaultValue={todo.date} />
       {/* 삭제 버튼을 렌더링하고, 클릭 시 onDelete 함수를 호출하여 해당 할 일을 삭제합니다. */}
       <button onClick={onDelete}>Delete</button>
     </li>
