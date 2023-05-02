@@ -8,12 +8,12 @@ import React from "react";
 import styles from "@/styles/TodoList.module.css";
 
 // Todo 객체를 생성하는 코드
-const Todo = (text) => {
+const Todo = (text, date) => {
   return {
     id: uuidv4(),
     text,
     completed: false,
-    date: new Date().toISOString().slice(0, 10), // 현재 날짜를 ISO 형식의 문자열로 변환하여 할 일의 날짜로 설정
+    date,
   };
 };
 

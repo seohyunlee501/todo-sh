@@ -30,7 +30,7 @@ const TodoList = () => {
 
   const getTodos = async () => {
     //firestore 쿼리
-    const q = query(todoCollection);
+    const q = query(todoCollection, orderBy("date", "asc"));
     //const q = query(collection(db, "todos"),where("user","==",user.uid));
     //const q = query(todoCollection, orderBy("datetime", "desc"));
     //firestore에서 할일 목록 조회
@@ -65,9 +65,18 @@ const TodoList = () => {
     const docRef = await addDoc(todoCollection, {
       text: input,
       completed: false,
+      date: new Date().toISOString().slice(0, 10),
     });
 
-    setTodos([...todos, { id: docRef.id, text: input, completed: false }]);
+    setTodos([
+      ...todos,
+      {
+        id: docRef.id,
+        text: input,
+        completed: false,
+        date: new Date().toISOString().slice(0, 10),
+      },
+    ]);
     setInput("");
   };
 
