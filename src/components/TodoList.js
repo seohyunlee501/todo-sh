@@ -30,9 +30,9 @@ const TodoList = () => {
 
   const getTodos = async () => {
     //firestore 쿼리
-    const q = query(todoCollection, orderBy("date", "asc"));
+    const q = query(todoCollection, orderBy("date", "desc"));
     //const q = query(collection(db, "todos"),where("user","==",user.uid));
-    //const q = query(todoCollection, orderBy("datetime", "desc"));
+
     //firestore에서 할일 목록 조회
     const results = await getDocs(q);
     const newTodos = [];
@@ -129,6 +129,9 @@ const TodoList = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
+
+      <input type="date" />
+
       {/* 할 일을 추가하는 버튼입니다. */}
       <div class="grid">
         <button
