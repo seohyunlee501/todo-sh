@@ -116,21 +116,23 @@ const TodoList = () => {
         Todo List
       </h1>
       {/* 할 일을 입력받는 텍스트 필드입니다. */}
-      <input
-        type="text"
-        // className={styles.itemInput}
-        // -- itemInput CSS code --
-        // input[type="text"].itemInput {
-        //   width: 100%;
-        //   padding: 5px;
-        //   margin-bottom: 10px;
-        // }
-        className="shadow-lg w-full p-1 mb-4 border border-gray-300 rounded"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
+      <div>
+        <input
+          type="text"
+          // className={styles.itemInput}
+          // -- itemInput CSS code --
+          // input[type="text"].itemInput {
+          //   width: 100%;
+          //   padding: 5px;
+          //   margin-bottom: 10px;
+          // }
+          className="shadow-lg w-full p-1 mb-4 border border-gray-300 rounded"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
 
-      <input type="date" />
+        <input type="date" />
+      </div>
 
       {/* 할 일을 추가하는 버튼입니다. */}
       <div class="grid">
