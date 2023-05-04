@@ -30,7 +30,11 @@ const TodoList = () => {
 
   const getTodos = async () => {
     //firestore 쿼리
-    const q = query(todoCollection, orderBy("date", "desc"));
+    const q = query(
+      todoCollection,
+      orderBy("date", "desc"),
+      orderBy("time", "desc")
+    );
     //const q = query(collection(db, "todos"),where("user","==",user.uid));
 
     //firestore에서 할일 목록 조회
@@ -66,6 +70,7 @@ const TodoList = () => {
       text: input,
       completed: false,
       date: new Date().toISOString().slice(0, 10),
+      time: new Date().toISOString().slice(12, 19),
     });
 
     setTodos([
@@ -75,6 +80,7 @@ const TodoList = () => {
         text: input,
         completed: false,
         date: new Date().toISOString().slice(0, 10),
+        time: new Date().toISOString().slice(12, 19),
       },
     ]);
     setInput("");
@@ -116,23 +122,19 @@ const TodoList = () => {
         Todo List
       </h1>
       {/* 할 일을 입력받는 텍스트 필드입니다. */}
-      <div>
-        <input
-          type="text"
-          // className={styles.itemInput}
-          // -- itemInput CSS code --
-          // input[type="text"].itemInput {
-          //   width: 100%;
-          //   padding: 5px;
-          //   margin-bottom: 10px;
-          // }
-          className="shadow-lg w-full p-1 mb-4 border border-gray-300 rounded"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-
-        <input type="date" />
-      </div>
+      <input
+        type="text"
+        // className={styles.itemInput}
+        // -- itemInput CSS code --
+        // input[type="text"].itemInput {
+        //   width: 100%;
+        //   padding: 5px;
+        //   margin-bottom: 10px;
+        // }
+        className="shadow-lg w-full p-1 mb-4 border border-gray-300 rounded"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
 
       {/* 할 일을 추가하는 버튼입니다. */}
       <div class="grid">
