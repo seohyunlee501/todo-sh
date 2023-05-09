@@ -7,6 +7,7 @@
 import React from "react";
 import styles from "@/styles/TodoList.module.css";
 
+/*
 // Todo 객체를 생성하는 코드
 const Todo = (text, date, time) => {
   return {
@@ -17,7 +18,7 @@ const Todo = (text, date, time) => {
     time,
   };
 };
-
+*/
 // TodoItem 컴포넌트를 정의합니다.
 const TodoItem = ({ todo, onToggle, onDelete }) => {
   // 각 할 일 항목을 렌더링합니다.

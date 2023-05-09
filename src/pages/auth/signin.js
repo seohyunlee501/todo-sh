@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-export default function signIn() {
+export default function Signin() {
   const router = useRouter();
   const { data: session } = useSession();
 
